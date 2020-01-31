@@ -146,6 +146,7 @@ class ObjectAttributeSpecTest
       ((AllOfThe)listDto).getConditions().add(between);
       ((AllOfThe)listDto).getConditions().add(test);
       ((AllOfThe)listDto).getConditions().add(contains);
+      allCond.getConditions().add(listDto);
       try
       {         
          s = jsonCon.toJson(where);
@@ -162,6 +163,7 @@ class ObjectAttributeSpecTest
       boolean eq = deser.equals(listDto);
      System.out.print(eq);
    }
+
 
    @Test
    public void testSpecFromFile() throws ParseException, JsonGenerationException, JsonMappingException, IOException
