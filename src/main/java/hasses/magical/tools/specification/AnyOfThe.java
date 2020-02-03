@@ -6,6 +6,30 @@ public class AnyOfThe extends ToSpecification
 {
    private List<ToSpecification> conditions;
 
+   @Override
+   public int hashCode()
+   {
+      final int prime = 31;
+      int result = 1;
+      result = prime * result + ((conditions == null) ? 0 : conditions.hashCode());
+      return result;
+   }
+
+   @Override
+   public boolean equals(Object obj)
+   {
+      if (this == obj) return true;
+      if (obj == null) return false;
+      if (getClass() != obj.getClass()) return false;
+      AnyOfThe other = (AnyOfThe) obj;
+      if (conditions == null)
+      {
+         if (other.conditions != null) return false;
+      }
+      else if (!conditions.equals(other.conditions)) return false;
+      return true;
+   }
+
    public List<ToSpecification> getConditions()
    {
       return conditions;

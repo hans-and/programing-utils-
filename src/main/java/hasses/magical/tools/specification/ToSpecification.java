@@ -13,4 +13,6 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 public abstract class ToSpecification {
    public  abstract ISpecification<Object> toSpecification();
+   public abstract boolean equals(Object other);
+   public abstract int hashCode();
 }

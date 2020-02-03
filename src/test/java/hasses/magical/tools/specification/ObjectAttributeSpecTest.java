@@ -17,6 +17,10 @@ import java.util.List;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
+import org.javers.core.Javers;
+import org.javers.core.JaversBuilder;
+import org.javers.core.diff.Diff;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 class ObjectAttributeSpecTest
@@ -156,11 +160,21 @@ class ObjectAttributeSpecTest
          System.out.print(e.getMessage());
       }
 
+      Javers javers = JaversBuilder.javers().build();
       
       
       assertTrue(s != null);
       WhereSatisfies deser= jsonCon.getObjectMapper().readValue(s, WhereSatisfies.class);
-      boolean eq = deser.equals(listDto);
+      boolean eq = deser.equals(where);
+      Diff diff = javers.compare(where, deser);
+      
+      
+      
+      System.out.println("APPAPPA "+diff.getChanges().size()+" has changes: "+diff.hasChanges());
+      diff.getChanges().forEach(action->System.out.println("APPAPPA "+action.toString()));
+      //System.out.print(diff);
+     // System.out.print(diff.changesSummary());
+      
      System.out.print(eq);
    }
 

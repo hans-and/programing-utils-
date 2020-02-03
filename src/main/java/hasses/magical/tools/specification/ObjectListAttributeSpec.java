@@ -9,6 +9,40 @@ import static hasses.magical.tools.specification.SpecificationHelp.expressionToS
 
 public class ObjectListAttributeSpec<T> extends CompositeSpecification<T>
 {
+   @Override
+   public int hashCode()
+   {
+      final int prime = 31;
+      int result = 1;
+      result = prime * result + ((attribute == null) ? 0 : attribute.hashCode());
+      result = prime * result + ((condition == null) ? 0 : condition.hashCode());
+      result = prime * result + ((operator == null) ? 0 : operator.hashCode());
+      return result;
+   }
+
+
+
+   @Override
+   public boolean equals(Object obj)
+   {
+      if (this == obj) return true;
+      if (obj == null) return false;
+      if (getClass() != obj.getClass()) return false;
+      ObjectListAttributeSpec other = (ObjectListAttributeSpec) obj;
+      if (attribute == null)
+      {
+         if (other.attribute != null) return false;
+      }
+      else if (!attribute.equals(other.attribute)) return false;
+      if (condition == null)
+      {
+         if (other.condition != null) return false;
+      }
+      else if (!condition.equals(other.condition)) return false;
+      if (operator != other.operator) return false;
+      return true;
+   }
+
    public enum ListOp {
       ATLEAST_ONE, ALL;
    }

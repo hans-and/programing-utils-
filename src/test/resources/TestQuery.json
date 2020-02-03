@@ -1,1 +1,55 @@
-{"candidate":"meets-all","the-conditions":[{"@type":"meets-all","the-conditions":[{"@type":"matches","this":"next.next.createdDate,>,2014-01-01 10:45"},{"@type":"matches","this":"next.next.createdDate,<,2014-01-01 10:55"}]},{"@type":"meets-any","of-the-conditions":[{"@type":"matches","this":"next.next.status;=;Ok"},{"@type":"matches","this":"next.next.status;=;Hint"}]},{"@type":"matches","this":"next.next.id;=;hopp"}]}
+{
+	"where": {
+		"satisfies": "all-of-the",
+		"conditions": [
+			{
+				"satisfies": "any-of-the",
+				"conditions": [
+					{
+						"satisfies": "the",
+						"condition": "next.next.status;=;Ok"
+					},
+					{
+						"satisfies": "the",
+						"condition": "next.next.status;=;Hint"
+					}
+				]
+			},
+			{
+				"satisfies": "all-of-the",
+				"conditions": [
+					{
+						"satisfies": "the",
+						"condition": "next.next.status;=;Ok"
+					},
+					{
+						"satisfies": "the",
+						"condition": "next.next.status;=;Hint"
+					},
+					{
+						"satisfies": "all-of-the",
+						"conditions": [
+							{
+								"satisfies": "the",
+								"condition": "next.next.createdDate,>,2014-01-01 10:45"
+							},
+							{
+								"satisfies": "the",
+								"condition": "next.next.createdDate,<,2014-01-01 10:55"
+							}
+						]
+					},
+					{
+						"satisfies": "the",
+						"condition": "next.next.id;=;hopp"
+					},
+					{
+						"satisfies": "list-contains",
+						"an-item-that": "name=Hasse Andersson",
+						"in": "customers"
+					}
+				]
+			}
+		]
+	}
+}
