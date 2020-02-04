@@ -13,6 +13,8 @@ public class TheCondition extends ToSpecification
       return result;
    }
 
+   
+   
    @Override
    public boolean equals(Object obj)
    {
