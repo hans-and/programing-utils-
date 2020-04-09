@@ -23,6 +23,8 @@ import org.javers.core.diff.Diff;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import hasses.magical.tools.dto.ListOperationsDTO;
+
 class ObjectAttributeSpecTest
 {
 
@@ -120,6 +122,11 @@ class ObjectAttributeSpecTest
       System.out.println("-- deserializing --");
       AllOfThe view = om.readValue(s, AllOfThe.class);
       System.out.println(view);
+      ListOperationsDTO dto = new ListOperationsDTO();
+      dto.setOperation("intersection");
+      s = om.writeValueAsString(dto);
+      System.out.println(s);
+
    }
    
    @Test

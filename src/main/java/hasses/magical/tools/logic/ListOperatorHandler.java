@@ -3,12 +3,13 @@ package hasses.magical.tools.logic;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+
 import hasses.magical.tools.dto.ListOperationResultDTO;
 import hasses.magical.tools.dto.ListOperationsDTO;
 
 public class ListOperatorHandler
 {
-
+ 
    private static ListOperatorHandler lopHandler = null;
 
    private ListOperatorHandler()
@@ -31,7 +32,7 @@ public class ListOperatorHandler
    
    public ListOperationResultDTO getIntersection(ListOperationsDTO source) {
       getIntersection(stringToCollection(source.getListA()),stringToCollection(source.getListB()));
-      return null;   
+      return new ListOperationResultDTO("Hej Joxooxoxzoxoxo");   
    }
    
    private Collection<String> stringToCollection(String listSource)
