@@ -12,21 +12,21 @@ public class IsGreaterThan implements AttributeIs
    public boolean is(Object attributeCandidate, String pattern) throws ParseException
    {
       if(attributeCandidate instanceof Byte) {
-         return ((Byte)attributeCandidate).compareTo(new Byte(pattern))>0;
+         return ((Byte)attributeCandidate).compareTo(Byte.parseByte(pattern))>0;
       }else if(attributeCandidate instanceof Date) {
          return ((Date)attributeCandidate).compareTo(stringToDate(pattern))>0;
       }else if(attributeCandidate instanceof Integer) {
-         return ((Integer)attributeCandidate).compareTo(new Integer(pattern))>0;
+         return ((Integer)attributeCandidate).compareTo(Integer.parseInt(pattern))>0;
       }else if(attributeCandidate instanceof Double) {
-         return ((Double)attributeCandidate).compareTo(new Double(pattern))>0;
+         return ((Double)attributeCandidate).compareTo(Double.parseDouble(pattern))>0;
       }else if(attributeCandidate instanceof Boolean) {
-         return ((Boolean)attributeCandidate).compareTo(new Boolean(pattern))>0;
+         return ((Boolean)attributeCandidate).compareTo(Boolean.parseBoolean(pattern))>0;
       }else if(attributeCandidate instanceof String) {
          return ((String)attributeCandidate).compareTo(pattern)>0;
       }else if (attributeCandidate instanceof BigDecimal) {
          return ((BigDecimal)attributeCandidate).compareTo(new BigDecimal(pattern))>0;
       }else if (attributeCandidate instanceof Float) {
-         return ((Float)attributeCandidate).compareTo(new Float(pattern))>0;
+         return ((Float)attributeCandidate).compareTo(Float.parseFloat(pattern))>0;
       }else {
          String candidateStr = ""+attributeCandidate;
          return candidateStr.compareTo(pattern)>0;

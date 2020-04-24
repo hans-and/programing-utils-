@@ -1,9 +1,6 @@
 package hasses.magical.tools.specification;
 
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.Before;
 import org.junit.jupiter.api.Test;
 
 
@@ -22,8 +19,6 @@ import org.javers.core.JaversBuilder;
 import org.javers.core.diff.Diff;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import hasses.magical.tools.dto.ListOperationsDTO;
 
 class ObjectAttributeSpecTest
 {
@@ -122,9 +117,6 @@ class ObjectAttributeSpecTest
       System.out.println("-- deserializing --");
       AllOfThe view = om.readValue(s, AllOfThe.class);
       System.out.println(view);
-      ListOperationsDTO dto = new ListOperationsDTO();
-      dto.setOperation("intersection");
-      s = om.writeValueAsString(dto);
       System.out.println(s);
 
    }

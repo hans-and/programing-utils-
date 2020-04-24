@@ -1,0 +1,51 @@
+:root {
+	--turkois: #4b7d62;
+	--hl-turkois: #429d6c;
+	--red: #9b1a15;
+	--hl-red: #d5120b;
+	--orange: #c98314;
+	--hl-orange: #f59908;
+	--light: #ceb67a;
+	--hl-light: #ebd294;
+	--black: #1e2315;
+	--hl-black: #3f492b;
+}
+
+@font-face {
+	font-family: rubrik;
+	src: url(fonts/Roboto-Medium.ttf);
+}
+
+.container {
+	width: 900px;
+	height: 506px;
+	position: relative;
+	top:20px;
+	display: inline-block;
+}
+
+label.bus{
+font-family: rubrik;
+	font-size: 30px;
+}
+/* Bottom left text */
+.busLabel1 {
+	
+	position: absolute;
+	top: 165px;
+	left: 45px;
+}
+
+.busLabel2 {
+	
+	position: absolute;
+	top: 200px;
+	left: 45px;
+}
+
+.busLabel3 {
+	color: var(--hl-black);
+	position: absolute;
+	top: 235px;
+	left: 45px;
+}

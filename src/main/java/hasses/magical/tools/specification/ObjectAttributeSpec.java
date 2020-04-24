@@ -24,7 +24,7 @@ public class ObjectAttributeSpec<T> extends CompositeSpecification<T>
       if (this == obj) return true;
       if (obj == null) return false;
       if (getClass() != obj.getClass()) return false;
-      ObjectAttributeSpec other = (ObjectAttributeSpec) obj;
+      ObjectAttributeSpec<?> other = (ObjectAttributeSpec<?>) obj;
       if (attribute == null)
       {
          if (other.attribute != null) return false;

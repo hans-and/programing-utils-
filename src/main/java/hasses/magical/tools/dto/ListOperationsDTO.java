@@ -1,40 +1,40 @@
 package hasses.magical.tools.dto;
 
 public class ListOperationsDTO {
-	
-	public Boolean getIgnoreCase() {
+
+	private boolean ignoreCase;
+
+	private boolean trim;
+
+	private boolean sort;
+
+	private String listA;
+	private String listB;
+	private ListOperation operation;
+
+	public boolean isIgnoreCase() {
 		return ignoreCase;
 	}
 
-	public void setIgnoreCase(Boolean ignoreCase) {
+	public void setIgnoreCase(boolean ignoreCase) {
 		this.ignoreCase = ignoreCase;
 	}
 
-	public Boolean getTrim() {
+	public boolean getTrim() {
 		return trim;
 	}
 
-	public void setTrim(Boolean trim) {
+	public void setTrim(boolean trim) {
 		this.trim = trim;
 	}
 
-	public Boolean getSort() {
+	public boolean getSort() {
 		return sort;
 	}
 
-	public void setSort(Boolean sort) {
+	public void setSort(boolean sort) {
 		this.sort = sort;
 	}
-
-	private Boolean ignoreCase;
-	
-	private Boolean trim;
-	
-	private Boolean sort;
-	
-	private String listA;
-	private String listB;
-	private String operation;
 
 	public String getListA() {
 		return listA;
@@ -48,7 +48,7 @@ public class ListOperationsDTO {
 		this.listB = listB;
 	}
 
-	public void setOperation(String operation) {
+	public void setOperation(ListOperation operation) {
 		this.operation = operation;
 	}
 
@@ -56,7 +56,7 @@ public class ListOperationsDTO {
 		return listB;
 	}
 
-	public String getOperation() {
+	public ListOperation getOperation() {
 		return operation;
 	}
 

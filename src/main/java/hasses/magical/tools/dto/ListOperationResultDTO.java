@@ -9,6 +9,10 @@ public ListOperationResultDTO(String result) {
 	this.result = result;
 }
 
+public ListOperationResultDTO() {
+	
+}
+
 public String getResult() {
 	return result;
 }
