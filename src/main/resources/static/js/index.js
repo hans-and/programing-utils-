@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 function getBaseUrl() {
-    return 'http://145.40.19.61:8080';
+    //http://145.40.19.61:8080/
+    return location.origin;
 }
 function copyByName(source, destination) {
     var childnodes = Array.from(source.childNodes);
@@ -29,30 +30,6 @@ function copyByName(source, destination) {
             }
         }
     });
-}
-function unionOperationOrg() {
-    var res;
-    var request = new XMLHttpRequest();
-    request.open('GET', getBaseUrl() + '/greeting', true);
-    request.send();
-    request.onload = function () {
-        if (request.readyState == 4 && request.status == 200) {
-            try {
-                var jsonobjdata = JSON.parse(request.responseText);
-                res = jsonobjdata.result;
-            }
-            catch (error) {
-                res = res + "parse error" + error;
-            }
-            console.log(jsonobjdata);
-        }
-        else {
-            res = res + " WTF!!!!!!!!";
-            console.error(request.responseText);
-        }
-        document.getElementById("list-op-result-text").value = "Hasse -sasas---" + res;
-        console.log("apa");
-    };
 }
 function unionOperation(source, destination) {
     var obj = {};
@@ -87,42 +64,27 @@ function simpleGet(requestMapping, pOnload) {
     request.send();
     request.onload = pOnload;
 }
-function getGreetingOrg(destination) {
-    var request = new XMLHttpRequest();
-    request.open('GET', getBaseUrl() + '/greeting', true);
-    request.send();
-    request.onload = function () {
-        if (request.readyState == 4 && request.status == 200) {
-            try {
-                var jsonobjdata = JSON.parse(request.responseText);
-                destination.innerHTML = jsonobjdata.result;
-            }
-            catch (error) {
-                console.log(error);
-                destination.innerHTML = "Något gick fel";
-            }
-        }
-        else {
-            destination.innerHTML = "Något gick fel";
-        }
-    };
-}
 function getGreeting(destination) {
-    simpleGet('/greeting', function () {
-        if (this.readyState == 4 && this.status == 200) {
-            try {
-                var jsonobjdata = JSON.parse(this.responseText);
-                destination.innerHTML = jsonobjdata.result;
+    /*
+        simpleGet('/greeting',
+            function () {
+                
+                if (this.readyState == 4 && this.status == 200) {
+                    try {
+                        var jsonobjdata: StringOperationResult = JSON.parse(this.responseText);
+                        destination.innerHTML = jsonobjdata.result+" "+getBaseUrl();
+                    } catch (error) {
+                        console.log(error)
+                        destination.innerHTML = "Något gick fel"
+                    }
+                } else {
+                    destination.innerHTML = "Något gick fel"
+                }
+    
             }
-            catch (error) {
-                console.log(error);
-                destination.innerHTML = "Något gick fel";
-            }
-        }
-        else {
-            destination.innerHTML = "Något gick fel";
-        }
-    });
+        );
+        */
+    return getBaseUrl();
 }
 function getBuss55(l1, l2, l3) {
     simpleGet('/bus55', function () {
