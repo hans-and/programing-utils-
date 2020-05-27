@@ -12,12 +12,12 @@
 </head>
 
 <body class="ContentBody">
-	<div id="greeting" class="BigSign">Hej hopp potatis på semester</div>
+	<div id="greeting" class="BigSign">Trevlig resa!</div>
 
 	<div style="text-align: center;">
 		<div class="container">
 			<img src="img/bus55.gif" alt="bus55" onload="setBusOnload()" onclick="setGreeting()">
-			<div class="busLabel1"><label id="l1" class="bus">N/A</label></div>
+			<div class="busLabel1"><label id="l1" class="bus">Hasses har överskridit sin quota</label></div>
 			<div class="busLabel2"><label id="l2" class="bus">N/A</label></div>
 			<div class="busLabel3"><label id="l3" class="bus">N/A</label></div>
 		</div>
@@ -27,13 +27,7 @@
 			getBuss55(document.getElementById('l1'), document.getElementById('l2'), document.getElementById('l3'))
 		}, 10000);
 
-		function setGreeting() {
-
-			getGreeting(document.getElementById('greeting'));
-
-
-		}
-
+		
 		function setBusOnload() {
 
 			getBuss55(document.getElementById('l1'), document.getElementById('l2'), document.getElementById('l3'));

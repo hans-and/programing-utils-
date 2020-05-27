@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import hasses.magical.tools.dto.BusResultDTO;
 import hasses.magical.tools.dto.ListOperationResultDTO;
 import hasses.magical.tools.dto.ListOperationsDTO;
-import hasses.magical.tools.logic.SLBus55;
 import hasses.magical.tools.logic.listoperation.ListOperatorHandler;
 
 @Controller
@@ -20,7 +18,6 @@ public class ListOperationsController {
 
 	private static final Logger LOGGER =Logger.getLogger(ListOperationsController.class);
 	
-	private SLBus55 bus55Handler = new SLBus55();
 	
 	public ListOperationsController() {
 		
@@ -52,12 +49,5 @@ public class ListOperationsController {
 
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value = "/bus55")
-	@ResponseBody
-	public BusResultDTO getBus55() {
-		LOGGER.debug("invoked /bus55");
-		
-		return bus55Handler.getMinutesToDeparture();
-
-	}
+	
 }

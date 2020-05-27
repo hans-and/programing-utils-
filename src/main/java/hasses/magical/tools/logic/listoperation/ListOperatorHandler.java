@@ -28,8 +28,8 @@ public class ListOperatorHandler {
 		
 		Collection<StringIgnoreCaseWrapper> listA;
 		Collection<StringIgnoreCaseWrapper> listB;
-
-		if (ListOperation.operationResultIsASet(source.getOperation())) {
+		
+		if (ListOperation.operationResultIsASet(ListOperation.valueOf(source.getOperation()))) {
 			listA = getAsSet(source.getListA(), source.getTrim(), source.isIgnoreCase());
 			listB = getAsSet(source.getListB(), source.getTrim(), source.isIgnoreCase());
 		} else {
@@ -37,7 +37,7 @@ public class ListOperatorHandler {
 			listB = getAsList(source.getListB(), source.getTrim(), source.isIgnoreCase());
 
 		}
-		listA = source.getOperation().excecute(listA, listB);
+		listA = ListOperation.valueOf(source.getOperation()).excecute(listA, listB);
 		if (source.getSort()) {
 			listA = sort(listA);
 		}

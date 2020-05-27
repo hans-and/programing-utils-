@@ -1,5 +1,5 @@
 <DepartureBoard xmlns="hafas_rest_v1">
-	<Departure direction="Motalavägen (Stockholm kn)" name="Länstrafik - Buss 55" transportNumber="55" transportCategory="BLT" type="S" stopid="740046010" stopExtId="740046010" stop="Tanto (Stockholm kn)" date="2020-04-18" time="18:40:00" rtDate="2020-04-18" rtTime="18:40:00">
+	<Departure direction="Motalavägen (Stockholm kn)" name="Länstrafik - Buss 55" transportNumber="55" transportCategory="BLT" type="S" stopid="740046010" stopExtId="740046010" stop="Tanto (Stockholm kn)" date="2020-04-18" time="18:40:00" rtDate="2020-04-18" 	="18:40:00">
 		<Product catCode="7" catOutL="Länstrafik - Buss" catOutS="BLT" name="Länstrafik - Buss 55" num="55" operator="SL" operatorCode="275" operatorUrl="http://www.sl.se"/>
 		<Stops>
 			<Stop depDate="2020-04-18" depTime="18:40:00" rtDepDate="2020-04-18" rtDepTime="18:40:00" routeIdx="0" name="Tanto (Stockholm kn)" id="740046010" extId="740046010" lon="18.04625" lat="59.310054"/>

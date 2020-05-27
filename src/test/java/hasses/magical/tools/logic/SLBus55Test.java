@@ -45,9 +45,9 @@ class SLBus55Test {
 	
 	@Test
 	void test2() throws DocumentException, IOException {
-		SLBus55 b55 = new SLBus55();
-		String s = ""+b55.getMinutesToDeparture();
-		assertTrue(s!=null);
+//		SLBus55 b55 = new SLBus55();
+//		String s = ""+b55.getMinutesToDeparture();
+//		assertTrue(s!=null);
 	}
 
 	private Object onElement(Element element, List<String> dates) {
@@ -60,7 +60,14 @@ class SLBus55Test {
 		dates.add(d+" "+t);
 		return element;
 	}
+	
+	@Test
+	void testParseAndToString() throws ParseException {
+		Date date = DateHelper.parseSLDate("2020-06-06 15:30:25");
+		DateHelper.dateToMagicDateTimeString(date).equals("2020-06-06 15:30");
+	}
 
 
+	
 
 }

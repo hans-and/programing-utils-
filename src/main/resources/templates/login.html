@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Hasses Magiska - Login</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/MagicStyle.css">
+	<link rel="shortcut icon" type="image/png" href="../static/img/favicon.png">
+</head>
+
+<body class="ContentBody">
+	<div id="greeting" class="BigSign">V&auml;lkomsla!</div>
+	<div class="someMoreTopMargin">
+
+		<div class="container-fluid">
+			<div class="AppBody">
+				<!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
+				<fieldset>
+					<form th:action="@{/login}" method="POST" class="form-signin">
+						<fieldset>
+							<legend>Inloggning</legend>
+							<br /> <input type="text" id="email" name="email" th:placeholder="Email"
+								class="form-control" /> <br />
+							<input type="password" th:placeholder="Password" id="password" name="password"
+								class="form-control" />
+							<br />
+
+							<div align="center" th:if="${param.error}">
+								<p class="error-text">Email or Password is invalid.</p>
+							</div>
+							<div class="someTopMargin">
+								<button class="TopMenuButton" name="Submit" value="Login" type="Submit" th:text="Login"
+									style="margin-right:10px;">Logga In</button><br>
+							</div>
+							<div class="someTopMargin">
+								<a class="common" href="/recover-password">Dement? Saknar l&ouml;senordhanterare? Ingen
+									fara!</a><br>
+							</div>
+							<div class="someTopMargin">
+								<a class="common" href="/register">&Auml;r du inte medlem &auml;nnu? Registrera!</a>
+							</div>
+						</fieldset>
+					</form>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

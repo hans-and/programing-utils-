@@ -1,32 +1,28 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-function getBaseUrl() {
-    //http://145.40.19.61:8080/
-    return location.origin;
-}
-function copyByName(source, destination) {
-    var childnodes = Array.from(source.childNodes);
+function copyByName(source, destinationObj) {
+    var childnodes = source.childNodes;
     childnodes.forEach(function onNode(currentValue) {
         if (currentValue instanceof HTMLElement) {
             if (currentValue.hasAttribute('jfield')) {
                 var jfieldvalue = currentValue.getAttribute('jfield');
                 if (jfieldvalue === 'value') {
                     var name = currentValue.getAttribute('name');
-                    if (currentValue instanceof HTMLTextAreaElement) {
-                        destination[name] = currentValue.value;
-                    }
-                    else if (currentValue instanceof HTMLInputElement) {
-                        if (currentValue.hasAttribute('checked')) {
-                            destination[name] = currentValue.checked;
+                    if (name != null) {
+                        if (currentValue instanceof HTMLTextAreaElement) {
+                            destinationObj[name] = currentValue.value;
                         }
-                    }
-                    else if (currentValue instanceof HTMLSelectElement) {
-                        destination[name] = currentValue[currentValue.selectedIndex].getAttribute('value');
+                        else if (currentValue instanceof HTMLInputElement) {
+                            if (currentValue.hasAttribute('checked')) {
+                                destinationObj[name] = currentValue.checked;
+                            }
+                        }
+                        else if (currentValue instanceof HTMLSelectElement) {
+                            destinationObj[name] = currentValue[currentValue.selectedIndex].getAttribute('value');
+                        }
                     }
                 }
             }
-            if (currentValue.hasChildNodes) {
-                copyByName(currentValue, destination);
+            if (currentValue.hasChildNodes()) {
+                copyByName(currentValue, destinationObj);
             }
         }
     });
@@ -34,29 +30,31 @@ function copyByName(source, destination) {
 function unionOperation(source, destination) {
     var obj = {};
     copyByName(source, obj);
-    var request = new XMLHttpRequest();
-    request.open('POST', getBaseUrl() + '/list/operation', true);
-    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    request.send(JSON.stringify(obj));
-    request.onload = function () {
-        if (request.readyState == 4 && request.status == 200) {
+    simplePost('list/operation', obj, function () {
+        if (this.readyState == 4 && this.status == 200) {
             try {
-                var jsonobjdata = JSON.parse(request.responseText);
-                destination.value = jsonobjdata.result;
+                destination.value = JSON.parse(this.responseText).result;
             }
             catch (error) {
+                destination.value = "Ja jo go ipa" + error;
             }
         }
-        else if (request.status == 500) {
-            destination.value = "hasse nu vart det nå fel 500:" + request.response;
+        else if (this.status == 500) {
+            destination.value = "hasse nu vart det nå fel 500:" + this.response;
         }
-        else if (request.status == 400) {
-            destination.value = "hasse nu vart det nå fel 400:" + request.response;
+        else if (this.status == 400) {
+            destination.value = "hasse nu vart det nå fel 400:" + this.response;
+        }
+        else if (this.status == 415) {
+            destination.value = "hasse nu vart det nå fel 415:" + this.response + "sent: " + JSON.stringify({ "operation": "UNION", "ignoreCase": true, "sort": true, "trim": true, "listA": "mjau", "listB": "assssaaa" });
         }
         else {
-            destination.value = "hasse nu vart det nå fel" + request.response;
+            destination.value = "hasse nu vart det nå fel" + this.response + this.status + '  obj:' + obj;
         }
-    };
+    });
+}
+function getBaseUrl() {
+    return "https://hasses-magical.club/";
 }
 function simpleGet(requestMapping, pOnload) {
     var request = new XMLHttpRequest();
@@ -64,36 +62,42 @@ function simpleGet(requestMapping, pOnload) {
     request.send();
     request.onload = pOnload;
 }
+function simplePost(requestMapping, obj, pOnload) {
+    var request = new XMLHttpRequest();
+    request.open('Post', getBaseUrl() + requestMapping, true);
+    request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    request.send(JSON.stringify(obj));
+    request.onload = pOnload;
+}
 function getGreeting(destination) {
-    /*
-        simpleGet('/greeting',
-            function () {
-                
-                if (this.readyState == 4 && this.status == 200) {
-                    try {
-                        var jsonobjdata: StringOperationResult = JSON.parse(this.responseText);
-                        destination.innerHTML = jsonobjdata.result+" "+getBaseUrl();
-                    } catch (error) {
-                        console.log(error)
-                        destination.innerHTML = "Något gick fel"
-                    }
-                } else {
-                    destination.innerHTML = "Något gick fel"
+    simpleGet('lastCalled', function () {
+        if (this.readyState == 4 && this.status == 200) {
+            try {
+                var jsonobjdata = JSON.parse(this.responseText);
+                if (jsonobjdata.result != null) {
+                    destination.innerHTML = jsonobjdata.result;
                 }
-    
             }
-        );
-        */
-    return getBaseUrl();
+            catch (error) {
+                console.log(error);
+                destination.innerHTML = "Något gick fel";
+            }
+        }
+        else {
+            destination.innerHTML = "Något gick fel";
+        }
+    });
 }
 function getBuss55(l1, l2, l3) {
-    simpleGet('/bus55', function () {
+    simpleGet('bus55', function () {
         if (this.readyState == 4 && this.status == 200) {
             try {
                 var busres = JSON.parse(this.responseText);
-                l1.innerHTML = busres.avg1;
-                l2.innerHTML = busres.avg2;
-                l3.innerHTML = busres.avg3;
+                if (busres.avg1 != null && busres.avg2 != null && busres.avg3 != null) {
+                    l1.innerHTML = busres.avg1;
+                    l2.innerHTML = busres.avg2;
+                    l3.innerHTML = busres.avg3;
+                }
             }
             catch (error) {
                 console.log(error);
@@ -103,7 +107,7 @@ function getBuss55(l1, l2, l3) {
             }
         }
         else {
-            l1.innerHTML = "N/A";
+            l1.innerHTML = this.responseText;
             l2.innerHTML = "N/A";
             l3.innerHTML = "N/A";
         }
@@ -113,7 +117,8 @@ function initHideViewSibling(collapsableClassName) {
     var coll = document.getElementsByClassName(collapsableClassName);
     var i;
     for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
+        var collapseitem = coll[i];
+        collapseitem.addEventListener("click", function collapse() {
             this.classList.toggle("active");
             var content = this.nextElementSibling;
             if (content.style.display === "block") {
@@ -125,15 +130,3 @@ function initHideViewSibling(collapsableClassName) {
         });
     }
 }
-function initTree(treeId) {
-    var tree = document.getElementById(treeId);
-    var toggler = tree.getElementsByClassName("caret");
-    var i;
-    for (i = 0; i < toggler.length; i++) {
-        toggler[i].addEventListener("click", function () {
-            this.parentElement.querySelector(".nested").classList.toggle("active");
-            this.classList.toggle("caret-down");
-        });
-    }
-}
-//# sourceMappingURL=index.js.map

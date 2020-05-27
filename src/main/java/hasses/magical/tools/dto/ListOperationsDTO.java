@@ -2,15 +2,12 @@ package hasses.magical.tools.dto;
 
 public class ListOperationsDTO {
 
+	private String operation;
 	private boolean ignoreCase;
-
-	private boolean trim;
-
 	private boolean sort;
-
+	private boolean trim;
 	private String listA;
 	private String listB;
-	private ListOperation operation;
 
 	public boolean isIgnoreCase() {
 		return ignoreCase;
@@ -48,7 +45,7 @@ public class ListOperationsDTO {
 		this.listB = listB;
 	}
 
-	public void setOperation(ListOperation operation) {
+	public void setOperation(String operation) {
 		this.operation = operation;
 	}
 
@@ -56,7 +53,7 @@ public class ListOperationsDTO {
 		return listB;
 	}
 
-	public ListOperation getOperation() {
+	public String getOperation() {
 		return operation;
 	}
 

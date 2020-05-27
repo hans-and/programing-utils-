@@ -8,7 +8,8 @@ import java.util.stream.IntStream;
 import hasses.magical.tools.logic.listoperation.specifics.StringIgnoreCaseWrapper;
 
 public enum ListOperation {
-
+	
+	
 	UNION(new DoListOperation() {
 
 		@Override
