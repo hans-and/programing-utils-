@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ClientController {
 	
+	
 	private AtomicInteger counter = new AtomicInteger(); 
 	private static final Logger LOGGER =Logger.getLogger(ClientController.class);
 	

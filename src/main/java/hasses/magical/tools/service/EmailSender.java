@@ -11,6 +11,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +21,29 @@ import hasses.magical.tools.model.EmailMessage;
 @Service
 public class EmailSender {
 
+	private static final Logger LOGGER = Logger.getLogger(EmailSender.class);
+	
 	@Autowired
 	private MailConfig mailConfig;
 
+	
+
+	
+	public String sendResetEmail(String name,String toEmail, String paramConfirmPswr) throws AddressException, MessagingException {
+
+		LOGGER.debug("Sending email name="+name+" to"+toEmail+ " resettoken:"+paramConfirmPswr);
+		Message msg = getMessage();
+		msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
+		msg.setSubject(name+" alla glömmer ibland");
+		msg.setContent(
+				"Följ länken för att återställa https://hasses-magical.club/change?token="+paramConfirmPswr,
+				"text/html");
+		msg.setSentDate(new Date());
+		Transport.send(msg);
+		return "Success";
+	}
+
+	
 	public String sendConfirmEmail(String name,String toEmail, String paramConfirmPswr) throws AddressException, MessagingException {
 
 		Message msg = getMessage();

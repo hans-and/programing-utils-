@@ -14,10 +14,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import hasses.magical.tools.service.UserService;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	 @Autowired
+     private UserService userService;
+
+	
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -45,6 +51,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				// URLs matching for access rights
 				.antMatchers("/").permitAll().antMatchers("/login").permitAll().antMatchers("/register").permitAll()
+				.antMatchers(
+						"/reset/password").permitAll()
 				.antMatchers("/confirm").permitAll().antMatchers("/bus55").permitAll().antMatchers("/list/operation")
 				.permitAll().antMatchers("/home/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 				.antMatchers("/admin/**").hasAnyAuthority("SUPER_USER", "ADMIN_USER").anyRequest().authenticated().and()
