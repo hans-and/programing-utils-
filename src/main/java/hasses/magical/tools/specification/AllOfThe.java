@@ -49,9 +49,28 @@ public class AllOfThe extends ToSpecification
       for (ToSpecification aSpecDto : conditions)
       {
          if(result==null) {
-            result= aSpecDto.toSpecification();
+            try
+            {
+               result= aSpecDto.toSpecification();   
+            }
+            catch (Exception e)
+            {
+               System.out.println(e.getMessage());
+               throw e; 
+            }
+            
          }else {
-            result = result.And(aSpecDto.toSpecification());
+            try
+            {
+               result = result.And(aSpecDto.toSpecification());   
+            }
+            catch (Exception e)
+            {
+               System.out.println(e.getMessage());
+               throw e; 
+            }
+
+            
          }
       }
       return result;

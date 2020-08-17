@@ -31,11 +31,11 @@
 						"conditions": [
 							{
 								"satisfies": "the",
-								"condition": "next.next.createdDate,>,2014-01-01 10:45"
+								"condition": "next.next.createdDate;>;2014-01-01 10:45"
 							},
 							{
 								"satisfies": "the",
-								"condition": "next.next.createdDate,<,2014-01-01 10:55"
+								"condition": "next.next.createdDate;<;2014-01-01 10:55"
 							}
 						]
 					},
@@ -45,7 +45,7 @@
 					},
 					{
 						"satisfies": "list-contains",
-						"an-item-that": "name=Hasse Andersson",
+						"an-item-that": "name;=;Hasse Andersson",
 						"in": "customers"
 					}
 				]

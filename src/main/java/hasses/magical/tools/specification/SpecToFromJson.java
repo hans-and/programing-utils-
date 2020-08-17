@@ -7,7 +7,7 @@ import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+import static hasses.magical.tools.file.FileHelper.readFileAsString;
 
 public class SpecToFromJson
 {
@@ -38,9 +38,10 @@ public class SpecToFromJson
 
 
 
-   public WhereSatisfies toWhereSatisfies(File file)
+   public WhereSatisfies toWhereSatisfies(File file) throws IOException
    {
-      // TODO Auto-generated method stub
-      return null;
+      String queryStr = readFileAsString(file);
+
+      return mapper.readValue(queryStr, WhereSatisfies.class);
    }
 }

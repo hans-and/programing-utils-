@@ -31,7 +31,7 @@ public class ListOperatorHandler
    
    public ListOperationResultDTO getIntersection(ListOperationsDTO source) {
       getIntersection(stringToCollection(source.getListA()),stringToCollection(source.getListB()));
-      return null;   
+      return new ListOperationResultDTO("hej hasse");   
    }
    
    private Collection<String> stringToCollection(String listSource)

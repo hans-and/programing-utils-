@@ -23,6 +23,8 @@ import org.javers.core.diff.Diff;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import hasses.magical.tools.dto.ListOperationsDTO;
+
 class ObjectAttributeSpecTest
 {
 
@@ -120,6 +122,11 @@ class ObjectAttributeSpecTest
       System.out.println("-- deserializing --");
       AllOfThe view = om.readValue(s, AllOfThe.class);
       System.out.println(view);
+      ListOperationsDTO dto = new ListOperationsDTO();
+      dto.setListA("a,aa,aa");
+      dto.setListB("b,aa,aa");
+      dto.setOperation("op");
+      s = om.writeValueAsString(dto);
    }
    
    @Test
@@ -182,13 +189,17 @@ class ObjectAttributeSpecTest
    @Test
    public void testSpecFromFile() throws ParseException, JsonGenerationException, JsonMappingException, IOException
    {
+      jsonCon = new SpecToFromJson();
       ClassLoader classLoader = this.getClass().getClassLoader();
       File file = new File(classLoader.getResource("TestQuery.json").getFile());
       // WhereSatisfies s = jsonCon.toWhereSatisfies(file);
 
       WhereSatisfies allCond = jsonCon.toWhereSatisfies(file);
+      
       assertTrue(allCond != null);
-
+      ISpecification<Object> spes =  allCond.where.toSpecification();
+      spes.IsSatisfiedBy(jsonCon);
+      
    }
 
    private AnyOfThe newOrList(String... expression)
