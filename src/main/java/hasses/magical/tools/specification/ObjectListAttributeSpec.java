@@ -28,7 +28,7 @@ public class ObjectListAttributeSpec<T> extends CompositeSpecification<T>
       if (this == obj) return true;
       if (obj == null) return false;
       if (getClass() != obj.getClass()) return false;
-      ObjectListAttributeSpec other = (ObjectListAttributeSpec) obj;
+      ObjectListAttributeSpec<?> other = (ObjectListAttributeSpec<?>) obj;
       if (attribute == null)
       {
          if (other.attribute != null) return false;

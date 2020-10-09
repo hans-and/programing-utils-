@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta content="text/html" charset="UTF-8">
+	<script src="js/index.js" charset="UTF-8"></script>
+	<link rel="stylesheet" type="text/css" href="css/MagicStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/BusStop.css">
+	<title>Välkommen</title>
+
+</head>
+
+<body class="ContentBody">
+	<div id="greeting" class="BigSign">Trevlig resa!</div>
+
+	<div style="text-align: center;">
+		<div class="container">
+			<img src="img/bus55.gif" alt="bus55" onload="setBusOnload()" onclick="setGreeting()">
+			<div class="busLabel1"><label id="l1" class="bus">Hasses har överskridit sin quota</label></div>
+			<div class="busLabel2"><label id="l2" class="bus">N/A</label></div>
+			<div class="busLabel3"><label id="l3" class="bus">N/A</label></div>
+		</div>
+	</div>
+	<script>
+		window.setInterval(function () {
+			getBuss55(document.getElementById('l1'), document.getElementById('l2'), document.getElementById('l3'))
+		}, 10000);
+
+		
+		function setBusOnload() {
+
+			getBuss55(document.getElementById('l1'), document.getElementById('l2'), document.getElementById('l3'));
+
+
+		}
+
+
+	</script>
+</body>
+
+</html>

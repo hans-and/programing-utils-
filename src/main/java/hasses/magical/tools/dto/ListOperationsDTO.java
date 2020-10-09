@@ -1,59 +1,60 @@
 package hasses.magical.tools.dto;
 
-public class ListOperationsDTO
-{
+public class ListOperationsDTO {
 
-   public ListOperationsDTO()
-   {
-      super();
-      
-   }
+	private String operation;
+	private boolean ignoreCase;
+	private boolean sort;
+	private boolean trim;
+	private String listA;
+	private String listB;
 
-   public ListOperationsDTO(String listA, String listB, String operation)
-   {
-      super();
-      this.listA = listA;
-      this.listB = listB;
-      this.operation = operation;
-   }
+	public boolean isIgnoreCase() {
+		return ignoreCase;
+	}
 
-   private String listA;
+	public void setIgnoreCase(boolean ignoreCase) {
+		this.ignoreCase = ignoreCase;
+	}
 
-   private String listB;
+	public boolean getTrim() {
+		return trim;
+	}
 
-   private String operation;
+	public void setTrim(boolean trim) {
+		this.trim = trim;
+	}
 
-   public String getListA()
-   {
+	public boolean getSort() {
+		return sort;
+	}
 
-      return listA;
-   }
+	public void setSort(boolean sort) {
+		this.sort = sort;
+	}
 
-   public String getListB()
-   {
+	public String getListA() {
+		return listA;
+	}
 
-      return listB;
-   }
+	public void setListA(String listA) {
+		this.listA = listA;
+	}
 
-   public String getOperation()
-   {
-      // TODO Auto-generated method stub
-      return operation;
-   }
+	public void setListB(String listB) {
+		this.listB = listB;
+	}
 
-   public void setListA(String listA)
-   {
-      this.listA = listA;
-   }
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
 
-   public void setListB(String listB)
-   {
-      this.listB = listB;
-   }
+	public String getListB() {
+		return listB;
+	}
 
-   public void setOperation(String operation)
-   {
-      this.operation = operation;
-   }
+	public String getOperation() {
+		return operation;
+	}
 
 }

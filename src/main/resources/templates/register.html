@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Hasses Magiska - Registrering</title>
+	<link rel="stylesheet" type="text/css" href="../static/css/MagicStyle.css">
+	<link rel="shortcut icon" type="image/png" href="../static/img/favicon.png">
+
+</head>
+
+<body class="ContentBody">
+	<div id="greeting" class="BigSign">L&aring;t &auml;ventyret b&oumlrja!</div>
+	<div class="container-fluid" style="margin-top: 30px;">
+
+		<div class="AppBody" style="margin-top: 40px;  padding: 20px; border: solid 1px #ddd;">
+			<fieldset>
+				<legend>Registrering</legend>
+			<form autocomplete="off" action="#" th:action="@{/register}" th:object="${user}" method="post"
+				class="form-signin" role="form">
+				<h3 class="form-signin-heading"></h3>
+				<div class="form-group">
+					<div class="">
+						<input type="text" th:field="*{name}" placeholder="Namn" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="">
+						<input type="text" th:field="*{lastName}" placeholder="Efternamn" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="">
+						<input type="text" th:field="*{email}" placeholder="Email" class="form-control" />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="">
+						<input type="password" th:field="*{password}" placeholder="L&ouml;senord"
+							class="form-control" />
+					</div>
+				</div>
+				<div class="someTopMargin">
+					<div class="form-group">
+						<div class="">
+							<button type="submit" class="TopMenuButton">Jag kan inte b&auml;rga mig</button>
+						</div>
+					</div>
+				</div>
+				<p class="error-text">
+					<span th:utext="${message}"></span>
+					<div th:if="${not #lists.isEmpty(errors)}">
+						<ul>
+							<tr th:each="error : ${errors}">
+								<li><span th:text="${error}"></span></li>
+							</tr>
+						</ul>
+					</div>
+				</p>
+
+
+			</form>
+			</fieldset>
+		</div>
+	</div>
+</body>
+
+</html>

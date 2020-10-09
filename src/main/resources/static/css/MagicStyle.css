@@ -1,0 +1,361 @@
+@charset "utf-8";
+
+:root {
+	--turkois: #4b7d62;
+	--hl-turkois: #429d6c;
+	--red: #9b1a15;
+	--hl-red: #d5120b;
+	--orange: #c98314;
+	--hl-orange: #f59908;
+	--light: #ceb67a;
+	--hl-light: #ebd294;
+	--black: #1e2315;
+	--hl-black: #3f492b;
+}
+
+.Scratchiframe {
+	margin-top: 40px;
+	display: block;
+	width: 485px;
+	height: 402px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.SmugMugGalleryEmbedd {
+	margin-top: 40px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p.error-text{
+	background-color: var(--hl-black);
+	font-size: 14px;
+	font-family: button;
+	color: var(--hl-red);
+	border: solid 3px var(--red);
+	border-radius: 3px;
+	
+	padding: 3px
+	
+	
+}
+.SmugMugMovieEmbedd {
+	margin-top: 40px;
+	display: block;
+	width: 854px;
+	height: 480px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.imgCenter {
+	margin-top: 40px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+.TopMenu {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 65px;
+	border: 0px;
+
+}
+
+fieldset {
+	border: 2px solid var(--red);
+	border-radius: 5px;
+	box-shadow: 0 0 10px #999;
+}
+
+legend {
+	font-size: 14px;
+	font-family: button;
+	color: var(--black);
+	border: solid 1px var(--red);
+	border-radius: 3px;
+	position: sticky;
+
+	padding: 3px
+}
+
+.someTopMargin {
+	margin-top: 20px;
+}
+
+.someMoreTopMargin {
+	margin-top: 50px;
+}
+
+a.common {
+
+	font-size: 14px;
+	font-family: button;
+	color: var(--black);
+	padding: 1 px
+}
+
+
+.LeftMenu {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 300px;
+	height: 100%;
+	border: 0px;
+
+}
+
+.AppContent {
+	position: absolute;
+	top: 0px;
+	left: 300px;
+	width: 985px;
+	height: 100%;
+	border: 0px;
+	overflow: auto;
+}
+
+.BigSign {
+	background-color: var(--hl-light);
+	color: var(--red);
+	font-size: 40px;
+	font-family: ufo;
+	font-weight: bolder;
+	padding: 5px 10px;
+	border-radius: 10px;
+
+	text-align: center;
+	text-decoration: none;
+	overflow: hidden;
+	border: 5px solid var(--red);
+
+}
+
+
+.TopMenuButton {
+	background-color: var(--red);
+	color: var(--light);
+	font-size: 25px;
+	font-family: button;
+	font-weight: bolder;
+	padding: 5px 10px;
+	border-radius: 10px;
+
+	text-align: center;
+	text-decoration: none;
+	overflow: hidden;
+	border: 3px solid var(--light);
+
+}
+
+.TopMenuButton:hover {
+	background-color: var(--hl-red);
+	color: var(--hl-light);
+}
+
+.TopMenuBody {
+	background-color: var(--d-turkos);
+}
+
+label {
+	font-size: 16px;
+	font-family: label;
+	color: var(--black);
+	align-content: space-around;
+}
+
+select {
+	font-size: 14px;
+	font-family: label;
+	background-color: var(--hl-light);
+	color: var(--d-turkos);
+	border: 2px solid var(--red);
+	height: 24px;
+}
+
+.extra-rightspace:after {
+	content: url(../img/inv1616.png);
+}
+
+input[type=checkbox] {
+	cursor: pointer;
+	margin-right: 10px;
+	font-size: 17px;
+	color: var(--hl-black);
+}
+
+input[type=checkbox]:after {
+	content: " ";
+	background-color: var(--hl-light);
+	border: 2px solid var(--red);
+	display: inline-block;
+	position: relative;
+	top: -6px;
+	width: 22px;
+	height: 22px;
+	margin-right: 10px;
+}
+
+input[type=checkbox]:checked:after {
+	content: "\00a0\2714";
+}
+
+
+.MainContentFrame {
+	padding: 0;
+	top: 65px;
+	left: 0;
+	width: 100%;
+	height: 75%;
+	overflow: hidden;
+	position: absolute;
+	background: var(--d-turkos);
+}
+
+.IndexBody {
+	background: var(--hl-black);
+}
+
+
+.ContentBody {
+	background: #EB984E;
+}
+
+.AppBody {
+	background: var(--hl-turkois) url(../img/redFine.png) repeat;
+
+}
+
+
+/* Remove default bullets */
+ul {
+	color: var(--d-turkos);
+	list-style-type: none;
+}
+
+/* Remove margins and padding from the parent ul */
+.LeftMenus {
+	font-family: button;
+	margin: 0;
+	padding: 0;
+
+}
+
+a.LeftMenus {
+	text-decoration: none;
+}
+
+a.LeftMenus:link {
+	color: var(--d-turkos);
+}
+
+a.LeftMenus:hover {
+	background: var(--turkos);
+	color: var(--citrus);
+
+}
+
+/* Style the caret/arrow*/
+.caret {
+	cursor: default;
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+
+.caret::before {
+	content: "\25B6";
+	color: var(--d-turkos);
+	display: inline-block;
+	margin-right: 6px;
+}
+
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.caret-down::before {
+	transform: rotate(90deg);
+	color: var(--citrus);
+
+}
+
+/* Hide the nested list */
+.nested {
+	display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.active {
+	display: block;
+}
+
+
+
+@font-face {
+	font-family: button;
+	src: url(fonts/RobotoSlab-ExtraBold.ttf);
+}
+
+@font-face {
+	font-family: rubrik;
+	src: url(fonts/Ewert-Regular.ttf);
+}
+
+@font-face {
+	font-family: label;
+
+	src: url(fonts/Roboto-Medium.ttf);
+}
+
+
+@font-face {
+	font-family: bread;
+
+	src: url(fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+	font-family: input;
+
+	src: url(fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+	font-family: ufo;
+
+	src: url(fonts/BalooDa2-Bold.ttf);
+}
+
+@font-face {
+	font-family: punk;
+
+	src: url(fonts/MedulaOne-Regular.ttf);
+}
+
+.inline-div {
+	display: inline-block;
+}
+
+
+
+.inline-txtarea {
+	resize: none;
+	border: 2px solid var(--red);
+	vertical-align: top;
+	background-color: var(--hl-light);
+	height: 75%;
+}
+
+.form-control {
+	margin-top: 10px;
+	text-indent: 2px;
+	font-size: 14px;
+	font-family: input;
+	margin-left: 0px;
+	border: 2px solid var(--red);
+}

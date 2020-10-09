@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: button;
+	src: url(fonts/RobotoSlab-ExtraBold.ttf);
+}
+:root {
+	--turkois: #4b7d62;
+	--hl-turkois: #429d6c;
+	--red: #9b1a15;
+	--hl-red: #d5120b;
+	--orange: #c98314;
+	--hl-orange: #f59908;
+	--light: #ceb67a;
+	--hl-light: #ebd294;
+	--black: #1e2315;
+	--hl-black: #3f492b;
+}
+
+
+.TopMenuButton {
+	background-color: var(--turkois);
+	color: var(--orange);
+	font-size: 25px;
+	font-family: button;
+	font-weight: bolder;
+	padding: 5px 10px;
+	border-radius: 10px;
+
+	text-align: center;
+	text-decoration: none;
+	overflow: hidden;
+	border: 3px solid var(--orange);
+
+}
+
+.TopMenuButton:hover {
+	background-color: var(--hl-turkois);
+	color: var(--hl-orange);
+	border: 3px solid var(--hl-orange);
+}
+
+.TopMenuBody {
+	background-color: var(--hl-black);
+}

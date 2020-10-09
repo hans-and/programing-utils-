@@ -20,7 +20,7 @@ public class IsGreaterThanTest
 
    private Point publicKey;
 
-   @Test
+  // @Test
    public void genKey()
    {
       int primeA = PRIMES[r.nextInt(PRIMES.length)];
@@ -51,7 +51,7 @@ public class IsGreaterThanTest
       return BigInteger.valueOf(a).gcd(BigInteger.valueOf(b)).equals(BigInteger.ONE);
    }
 
-   @Test
+   //@Test
    public void test() throws ParseException
    {
       assertTrue(new IsGreaterThan().is(true, "false"));

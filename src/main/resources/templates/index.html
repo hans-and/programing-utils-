@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta content="text/html" charset="UTF-8">
+	<script src="../static/js/index.js" charset="UTF-8"></script>
+	<link rel="stylesheet" type="text/css" href="../static/css/MagicStyle.css">
+	<link rel="shortcut icon" type="image/png" href="../static/img/favicon.png" >
+	<title>Hasses Magiska Club p&aring; Internet (Template)</title>
+</head>
+
+<body class="IndexBody" >
+	
+	<iframe class="TopMenu" src="../static/top-menu.html"></iframe>
+	<iframe name="MainContentFrame" class="MainContentFrame" id="MainContentFrame" src="../static/default-content.html"></iframe>
+	<meta name="description" th:attr="content=${contdesc}"> 
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content="text/html" charset="utf-8">
+	<script src="../js/index.js" charset="UTF-8"></script>
+	<link rel="stylesheet" type="text/css" href="../css/MagicStyle.css">
+	<title>V&aumllkommen</title>
+
+</head>
+
+<body class="AppBody">
+
+
+	<div id="unionSource">
+		<fieldset>
+			<legend>M&aumlngd Operationer</legend>
+			<fieldset>
+				<legend>Alternativ</legend>
+				<label for="operation" hint="hej hasse det är okej">Operation:</label>
+				<select id="operation" name="operation" jfield="value">
+					<option value="UNION">Union (Unika/Set)</option>
+					<option value="UNION_ALL">Union All</option>
+					<option value="INTERSECTION">Snitt (Unika/Set)</option>
+					<option value="INTERSECTION_ALL">Snitt Alla</option>
+					<option value="A_EXCEPT_B">A Differens B (Unika/Set)</option>
+					<option value="A_EXCEPT_B_ALL">A Differens B Alla</option>
+				</select>
+
+				<label for="ignore-case"> Ignorera Skiftl&aumlge:</label>
+				<span class="extra-rightspace">
+					<input class="inlinnecheckbox" type="checkbox" id="ignore-case" name="ignoreCase" jfield="value"
+						checked="false">
+				</span>
+
+				<label for="sort"> Sortera resultat:</label>
+				<span class="extra-rightspace">
+					<input class="inlinnecheckbox" type="checkbox" id="sort" name="sort" jfield="value" checked="false">
+				</span>
+				<label for="trim">Trimma:</label>
+				<span class="extra-rightspace">
+					<input class="inlinnecheckbox" type="checkbox" id="trim" name="trim" checked="true" jfield="value">
+				</span>
+			</fieldset>
+			<fieldset>
+
+				<div class="inline-div">
+
+					<fieldset>
+						<legend>Inmatning</legend>
+						<div class="inline-div">
+							<label for="listA" align="Top">M&aumlngd A</label><br>
+							<textarea name="listA" cols="35" rows="20" class="inline-txtarea" jfield="value"></textarea>
+						</div>
+						<div class="inline-div">
+							<label align="left">M&aumlngd B</label><br>
+							<textarea name="listB" cols="35" rows="20" class="inline-txtarea" jfield="value"></textarea>
+						</div>
+					</fieldset>
+				</div>
+				<div class="inline-div">
+					<fieldset>
+						<legend>Resultat</legend>
+						<div class="inline-div">
+							<label for="result" align="left">Resultat</label><br>
+							<textarea name="result" type="onSubmit" value="update" id="list-op-result-text" cols="35"
+								rows="20" class="inline-txtarea"></textarea>
+						</div>
+					</fieldset>
+				</div>
+			</fieldset>
+			<br>
+
+
+			<button class="TopMenuButton"
+				onclick="unionOperation(document.getElementById('unionSource'),document.getElementById('list-op-result-text'))">Skicka</button>
+			
+		</fieldset>
+	</div>
+
+</body>
+
+</html>

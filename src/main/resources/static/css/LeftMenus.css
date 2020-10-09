@@ -1,0 +1,94 @@
+@charset "ISO-8859-1";
+
+:root {
+	--turkois: #4b7d62;
+	--hl-turkois: #429d6c;
+	--red: #9b1a15;
+	--hl-red: #d5120b;
+	--orange: #c98314;
+	--hl-orange: #f59908;
+	--light: #ceb67a;
+	--hl-light: #ebd294;
+	--black: #1e2315;
+	--hl-black: #3f492b;
+}
+
+body{
+
+	background: var(--red) url(../img/darkpurspec.png) repeat-y;
+	
+}
+.collapsible {
+	transition: 0.3s;
+	background-color: var(--turkois); 
+	color: var(--light);
+	padding: 3px;
+	width: 100%;
+	border-top: solid 2px #1e2315;
+	border-left: solid 2px #1e2315;
+	border-right: solid 2px #1e2315;
+	border-bottom: none;
+	text-align: left;
+	font-size: 15px;
+	font-family: button;
+}
+
+.active,
+.collapsible:hover {
+	background-color: var(--hl-turkois);
+	color: var(--hl-light);
+}
+
+
+.content {
+	border-top: solid 2px #1e2315;
+	padding:  5px;
+	display: none;
+	overflow: hidden;
+	background-color: var(--light);
+}
+
+
+.collapsible:last-of-type {
+	border-bottom: solid 2px #1e2315;
+}
+
+.content:last-of-type {
+	border-top: none;
+}
+
+a{
+	text-decoration: none;
+	font-family: button;
+	font-size: 12px;
+
+	padding: 3px;
+	border-radius: 5px;
+	border:solid 1px var(--light);
+}
+
+a:link {
+	color: var(--red);
+}
+
+a:visited {
+	color: var(--red);
+}
+
+a:hover {
+	background: var(--hl-light);
+	color: var(--hl-red);
+
+}
+
+
+
+@font-face {
+	font-family: button;
+	src: url(../css/fonts/RobotoSlab-Bold.ttf);
+}
+
+
+
+
+

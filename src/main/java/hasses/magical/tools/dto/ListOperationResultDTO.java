@@ -1,23 +1,24 @@
 package hasses.magical.tools.dto;
 
+
 public class ListOperationResultDTO
 {
+   private String result;
 
-   private String opres;
+public ListOperationResultDTO(String result) {
+	super();
+	this.result = result;
+}
 
-   public ListOperationResultDTO(String string)
-   {
-      opres = string;
-   }
+public ListOperationResultDTO() {
+	
+}
 
-   public String getOpres()
-   {
-      return opres;
-   }
+public String getResult() {
+	return result;
+}
 
-   public void setOpres(String opres)
-   {
-      this.opres = opres;
-   }
-
+public void setResult(String result) {
+	this.result = result;
+}
 }
