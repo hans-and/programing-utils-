@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta content="text/html" charset="UTF-8">
+	<script src="../static/js/index.js" charset="UTF-8"></script>
+	<link rel="stylesheet" type="text/css" href="../static/css/MagicStyle.css">
+	<title>Senil 107</title>
+
+</head>
+
+<body class="ContentBody">
+	<div id="greeting" class="BigSign">Nära nu!</div>
+	<div class="someMoreTopMargin">
+		<div class="container-fluid">
+			<div class="AppBody">
+				<!-- <img th:src="@{/images/login.jpg}" class="img-responsive center-block" width="300" height="300" alt="Logo" /> -->
+				<fieldset>
+					<form autocomplete="off" action="#" th:action="@{/change}" th:object="${passwordreset}"
+						method="post" class="form-signin" role="form">
+						<fieldset>
+							<legend>&Aring;terst&auml;llning konto</legend>
+							<div class="form-group">
+								<div class="">
+									<input type="password" th:field="*{password}" placeholder="Nytt L&ouml;senord"
+										class="form-control" />
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="">
+									<input type="password" th:field="*{passwordRepeat}"
+										placeholder="Upprepa Nytt L&ouml;senord" class="form-control" />
+								</div>
+							</div>
+							
+
+							<div class="form-group">
+								<div class="">
+									<input type="hidden" th:field="*{token}" placeholder="token"
+										class="form-control" />
+								</div>
+							</div>
+
+							<div align="center">
+								<p class="error-text"><span th:text="${message}"></span></p>
+							</div>
+
+							<div class="someTopMargin">
+								<button class="TopMenuButton" name="Submit" value="Login" type="Submit"
+									style="margin-right:10px;">Uppdatera </button><br>
+							</div>
+							<div class="someTopMargin">
+								<a class="common" href="/login">Logga in</a><br>
+							</div>
+
+						</fieldset>
+					</form>
+				</fieldset>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

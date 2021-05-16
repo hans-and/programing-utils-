@@ -7,7 +7,7 @@ import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.map.JsonMappingException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import static hasses.magical.tools.file.FileHelper.readFileAsString;
+import static hasses.magical.helpers.FileHelper.readFileAsString;
 
 public class SpecToFromJson
 {

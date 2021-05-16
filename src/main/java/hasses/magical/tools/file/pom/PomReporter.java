@@ -14,7 +14,7 @@ import org.dom4j.XPath;
 
 import com.opencsv.CSVWriter;
 
-import hasses.magical.tools.file.FileFilter;
+import hasses.magical.common.file.FileFilter;
 import hasses.magical.helpers.XMLHelper;
 
 public class PomReporter

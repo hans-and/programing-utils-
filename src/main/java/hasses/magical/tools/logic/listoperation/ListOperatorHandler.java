@@ -5,12 +5,12 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import hasses.magical.helpers.StringHelper;
 import hasses.magical.tools.dto.ListOperation;
 import hasses.magical.tools.dto.ListOperationResultDTO;
 import hasses.magical.tools.dto.ListOperationsDTO;
 import hasses.magical.tools.logic.listoperation.specifics.StringICWSet;
 import hasses.magical.tools.logic.listoperation.specifics.StringIgnoreCaseWrapper;
-import hasses.magical.tools.string.StringLib;
 
 public class ListOperatorHandler {
 
@@ -66,7 +66,7 @@ public class ListOperatorHandler {
 	
 	private Collection<StringIgnoreCaseWrapper> getAsSet(String source, boolean trim, boolean pIgnoreCase) {
 		StringICWSet result = new StringICWSet();
-		for (String item : StringLib.splitInRows(source)) {
+		for (String item : StringHelper.splitInRows(source)) {
 			result.add(new StringIgnoreCaseWrapper(trimIf(item, trim), pIgnoreCase));
 		}
 		return result;
@@ -75,7 +75,7 @@ public class ListOperatorHandler {
 	private Collection<StringIgnoreCaseWrapper> getAsList(String source, boolean trim, boolean pIgnoreCase) {
 
 		List<StringIgnoreCaseWrapper> result = new ArrayList<>();
-		for (String item : StringLib.splitInRows(source)) {
+		for (String item : StringHelper.splitInRows(source)) {
 			result.add(new StringIgnoreCaseWrapper(trimIf(item, trim), pIgnoreCase));
 		}
 		return result;

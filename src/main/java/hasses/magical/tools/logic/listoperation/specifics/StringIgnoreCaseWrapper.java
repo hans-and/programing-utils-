@@ -1,13 +1,9 @@
 package hasses.magical.tools.logic.listoperation.specifics;
 
 import java.io.UnsupportedEncodingException;
-import java.lang.invoke.MethodHandles.Lookup;
 import java.nio.charset.Charset;
 import java.util.Locale;
-import java.util.Optional;
-import java.util.function.Function;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class StringIgnoreCaseWrapper implements Comparable<StringIgnoreCaseWrapper>{
 
